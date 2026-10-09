@@ -1,10 +1,15 @@
+using System.Text.Json.Serialization;
+
 namespace SenhaLab.Vault.Core.Entries;
 
-public sealed class Entry
+[JsonPolymorphic(TypeDiscriminatorPropertyName = "type")]
+[JsonDerivedType(typeof(LoginEntry), "login")]
+[JsonDerivedType(typeof(SecureNoteEntry), "secure_note")]
+[JsonDerivedType(typeof(CardEntry), "card")]
+[JsonDerivedType(typeof(IdentityEntry), "identity")]
+public class Entry
 {
     public Guid Id { get; init; }
-
-    public string Type { get; init; } = string.Empty;
 
     public Guid? FolderId { get; set; }
 
