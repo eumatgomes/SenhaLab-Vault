@@ -1,0 +1,12 @@
+# Arquivos gerados pelo .NET
+**/bin/
+**/obj/
+
+# Arquivos do Visual Studio
+.vs/
+*.user
+*.suo
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
